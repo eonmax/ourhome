@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [:edit, :update, :show, :destroy]
+    
     def new
        @article = Article.new 
     end
@@ -31,15 +33,24 @@ class ArticlesController < ApplicationController
         end
     end
     
-    def delete
-        
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        flash[:notice] = "Usunięto post!"
+        redirect_to articles_path
     end
     
     def index
         @article = Article.all
     end
-    
+        
+        
     private
+    
+    
+    def set_article
+        @article = Article.find(params[:id])
+    end
 
     def article_params
         params.require(:article).permit(:title, :description)

@@ -21,6 +21,9 @@
         <td>
             <%= link_to "Pokaż post", article_path(article) %>
         </td>
+        <td> 
+            <%= link_to "Usuń post", article_path(article), method: :delete, data: {confirm: "Czy napewno usunąć post?" } %>
+        </td>
     </tr>
     <% end %>
     
