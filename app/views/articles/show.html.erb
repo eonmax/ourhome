@@ -1,0 +1,12 @@
+<h1>Utworzony post</h1>
+<p>
+    Tytuł: <%= @article.title %>
+</p>
+<p>
+    Opis: <%= @article.description %>
+</p>
+<%= link_to "Edytuj post", edit_article_path(@article) %> |
+<%= link_to "Pokaż post", article_path(@article) %>
+<p>
+<%= link_to "Powrót do listy postów", articles_path %>
+</p>
